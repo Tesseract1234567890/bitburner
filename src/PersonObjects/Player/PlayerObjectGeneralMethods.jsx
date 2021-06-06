@@ -581,7 +581,7 @@ export function processWorkEarnings(numCycles=1) {
 
 /* Working for Company */
 export function startWork(companyName) {
-    this.resetWorkStatus(CONSTANTS.WorkTypeCompany, companyName);
+    console.log(this)
     this.isWorking = true;
     this.focus = true;
     this.companyName = companyName;
@@ -865,6 +865,7 @@ export function stopFocusing() {
 /* Working for Faction */
 export function startFactionWork(faction) {
     //Update reputation gain rate to account for faction favor
+    this.resetWorkStatus(CONSTANTS.WorkTypeCompany, faction);
     var favorMult = 1 + (faction.favor / 100);
     if (isNaN(favorMult)) {favorMult = 1;}
     this.workRepGainRate *= favorMult;
