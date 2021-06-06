@@ -582,7 +582,6 @@ export function processWorkEarnings(numCycles=1) {
 /* Working for Company */
 export function startWork(companyName) {
     console.log(this)
-    this.resetWorkStatus(CONSTANTS.WorkTypeCompany, companyName);
     this.isWorking = true;
     this.focus = true;
     this.companyName = companyName;
@@ -1680,6 +1679,8 @@ export function hospitalize() {
 //The 'sing' argument designates whether or not this is being called from
 //the applyToCompany() Netscript Singularity function
 export function applyForJob(entryPosType, sing=false) {
+    this.resetWorkStatus();
+
     // Get current company and job
     let currCompany = null;
     if (this.companyName !== "") {
